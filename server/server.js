@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 
 const friendRouter = require('./routes/friendRouter.js');
-const FriendController = require('./controllers/FriendController.js');
+// const FriendController = require('./controllers/FriendController.js');
 
 const PORT = 3000;
 

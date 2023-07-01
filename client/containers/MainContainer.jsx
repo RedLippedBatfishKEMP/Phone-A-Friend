@@ -13,6 +13,7 @@ import React from 'react';
 // import from child components...
 import OverdueContainer from './OverdueContainer.jsx';
 import UpcomingContainer from './UpcomingContainer.jsx';
+import FriendContainer from './FriendContainer.jsx';
 import '../stylesheets/styles.css';
 
 const MainContainer = (props) => {
@@ -24,6 +25,7 @@ const MainContainer = (props) => {
         </h1>
         {/* Start adding components here... */}
         {console.log('inside div in main')}
+        <FriendContainer />
         <OverdueContainer />
         <UpcomingContainer />
       </div>

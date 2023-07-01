@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   // Path to your entry point. From this file Webpack will begin its work
   // entry: { src: './client/index.js' },
-  entry: './client/index.js', // j change
+  entry: './client/index.js',
   output: {
     // Path and filename of your result bundle.
     // Webpack will bundle all JavaScript into this file
@@ -42,7 +42,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.scss', 'css'],
+    extensions: ['.js', '.jsx', '.scss', '.css'],
   },
   plugins: [
     new HtmlWebpackPlugin({

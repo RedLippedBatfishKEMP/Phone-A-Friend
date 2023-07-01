@@ -18,11 +18,7 @@ import MainContainer from './containers/MainContainer.jsx';
 
 const App = () => {
   console.log('im here');
-  return (
-    <div>
-      <MainContainer />
-    </div>
-  );
+  return <div>{/* <MainContainer /> */}</div>;
 };
 
 export default App;

@@ -11,7 +11,7 @@
 
 import { Switch, Route } from 'react-router-dom';
 
-import Cats from './components/Cat.jsx';
+// import Friends from './components/Friend.jsx';
 import './stylesheets/styles.css';
 import React from 'react';
 import MainContainer from './containers/MainContainer.jsx';

@@ -22,15 +22,15 @@
     "mongoose": "^6.8.0",
     "node-fetch": "^2.3.0",
     "postcss-loader": "^7.3.3",
-    "sass": "^1.63.6",
-    "sass-loader": "^13.3.2",
-    "style-loader": "^3.3.3",
     "prop-types": "^15.6.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-hot-loader": "^4.6.3",
     "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "sass": "^1.63.6",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",

@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
-const { number } = require('prop-types');
+// const { number } = require('prop-types');
 // const Schema = mongoose.Schema;
-const uri =
+const uri = 'mongodb+srv://paulkim0209:batfish@cluster0.xxfz2d0.mongodb.net/Phone-A-Friend?retryWrites=true&w=majority'
   // make sure to make MongoDB in the cloud and not local
   // need to create MongoDB and add URI here and password
-  'mongodb+srv://';
 
 mongoose.connect(
   // interact in terminal, mongosh = Mongo Shell, terminal mongosh to start
@@ -13,7 +12,7 @@ mongoose.connect(
     useNewUrlParser: true,
     useUnifiedTopology: true,
     // insert DB name here
-    dbName: '',
+    dbName: 'Phone-A-Friend',
   }
 );
 mongoose.connection.once('open', () => {

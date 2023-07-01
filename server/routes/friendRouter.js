@@ -5,7 +5,7 @@ const path = require('path');
 const friendRouter = express.Router();
 const FriendController = require('../controller/FriendController.js');
 
-// get all cats in db
+// get all friends in db
 friendRouter.get('/', FriendController.getAllFriends, (req, res) => {
   res
     .header(

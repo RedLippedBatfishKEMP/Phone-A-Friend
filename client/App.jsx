@@ -9,7 +9,7 @@
  * ************************************
  */
 
-import { Switch, Route } from 'react-router-dom';
+// import { Switch, Route } from 'react-router-dom';
 
 // import Friends from './components/Friend.jsx';
 import './stylesheets/styles.css';

@@ -25,9 +25,9 @@ const MainContainer = (props) => {
         </h1>
         {/* Start adding components here... */}
         {console.log('inside div in main')}
-        <FriendContainer />
+        {/* <FriendContainer />
         <OverdueContainer />
-        <UpcomingContainer />
+        <UpcomingContainer /> */}
       </div>
     </div>
   );

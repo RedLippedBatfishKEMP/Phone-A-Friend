@@ -21,7 +21,7 @@ export default function UpcomingFriendList() {
     currentMonth
   ) => {
     // console.log('apt', appointment);
-    fetch('/server/reconnected', {
+    fetch('/friend/reconnected', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

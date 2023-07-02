@@ -21,7 +21,7 @@ mongoose.connection.once('open', () => {
 });
 
 const friendSchema = new mongoose.Schema({
-  name: { type: String, required: true },
+  name: { type: String, required: true, unique: true },
   lastContact: { type: Number, required: true },
   frequency: { type: Number, required: true },
   nextContact: { type: Number, required: true },

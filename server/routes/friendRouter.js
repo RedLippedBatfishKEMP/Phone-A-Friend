@@ -24,11 +24,11 @@ const FriendController = require('../controller/FriendController.js');
 // });
 // add friend to db
 friendRouter.post('/addFriend', FriendController.addFriend, (req, res) => {
-  return res.status(200).send('hi');
+  return res.status(200).json(res.locals.addFriendResponse);
 });
 
-friendRouter.post('/:nextMonth', FriendController.addFriend, (req, res) => {
-  return res.status(200).json(res.locals.addFriendResponse);
+friendRouter.post('/nextMonth', FriendController.nextMonth, (req, res) => {
+  return res.status(200).json(res.locals.friendData);
 });
 
 // find friend in db by name

@@ -3,15 +3,16 @@ const FriendInfo = require('../FriendModel');
 const FriendController = {
   // create a new friend and add to database
   addFriend(req, res, next) {
-    const { name, lastContact, frequency, nextContact } = req.body;
+    const { name, lastContact, frequency } = req.body;
     console.log('line 7', req.body);
     FriendInfo.create({
       name,
       lastContact,
       frequency,
-      nextContact,
+      nextContact: lastContact + frequency,
     })
       .then((data) => {
+        console.log('line 15', data)
         res.locals.addFriendResponse = data;
         return next();
       })
@@ -25,10 +26,23 @@ const FriendController = {
   },
 
   nextMonth(req, res, next) {
-    const { nextMonth } = req.params;
-    FriendInfo.find({ nextContact: nextMonth })
+
+    const { newMonth } = req.body;
+    FriendInfo.find({ nextContact: { $lte: newMonth + 1 } })
       .then((data) => {
-        res.locals.upcomingFolks = data;
+        const overdue = [];
+        const due = [];
+        const upcoming = [];
+        data.forEach(entry => {
+          if (entry.nextContact < newMonth) overdue.push(entry);
+          else if (entry.nextContact === newMonth) due.push(entry);
+          else upcoming.push(entry);
+        })
+        res.locals.friendData = {
+          overdue,
+          due,
+          upcoming
+        };
         return next();
       })
       .catch((err) => {

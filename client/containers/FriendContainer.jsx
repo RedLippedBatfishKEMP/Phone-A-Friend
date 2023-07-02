@@ -8,13 +8,13 @@ export default function addFriend() {
   // const triedToLogIn = useSelector((state) => state.reducer.triedToLogIn);
   const navigate = useNavigate();
 
-  const add = (name, lastContact, frequency, nextContact) => {
-    fetch('server/addfriend', {
+  const add = (name, lastContact, frequency) => {
+    fetch('/friend/addFriend', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, lastContact, frequency, nextContact }),
+      body: JSON.stringify({ name, lastContact, frequency }),
     });
     // .then((res) => res.json())
     // .then((res) => {

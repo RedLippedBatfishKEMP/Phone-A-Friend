@@ -3,33 +3,37 @@ const app = express();
 const path = require('path');
 
 const friendRouter = express.Router();
-const FriendController = require('../controllers/FriendController.js');
+const FriendController = require('../controller/FriendController.js');
 
 // get all cats in db
-friendRouter.get('/', FriendController.getAllFriends, (req, res) => {
-  res
-    .header(
-      'Access-Control-Allow-Methods',
-      'GET',
-      'PUT',
-      'POST',
-      'DELETE',
-      'OPTIONS'
-    )
-    .header('Access-Control-Allow-Origin', 'http://localhost:8080')
-    .header('Access-Control-Allow-Credentials', 'true');
+// friendRouter.get('/', FriendController.getAllFriends, (req, res) => {
+  
+  // res
+    // .header(
+    //   'Access-Control-Allow-Methods',
+    //   'GET',
+    //   'PUT',
+    //   'POST',
+    //   'DELETE',
+    //   'OPTIONS'
+    // )
+    // .header('Access-Control-Allow-Origin', 'http://localhost:8080')
+    // .header('Access-Control-Allow-Credentials', 'true');
 
-  return res.status(200).json(res.locals.getAllFriendsResponse);
+//   return res.status(200).json(res.locals.getAllFriendsResponse);
+// });
+// add friend to db
+friendRouter.post('/addFriend', FriendController.addFriend, (req, res) => {
+  return res.status(200).send('hi');
 });
 
-// add friend to db
-friendRouter.post('/', FriendController.addFriend, (req, res) => {
+friendRouter.post('/:nextMonth', FriendController.addFriend, (req, res) => {
   return res.status(200).json(res.locals.addFriendResponse);
 });
 
 // find friend in db by name
 // : means we are sending info along with the route
-friendRouter.get('/:name', FriendController.getFriend, (req, res) => {
+friendRouter.patch('/reconnected', (req, res) => {
   return res.status(200).json(res.locals.getFriendResponse);
 });
 

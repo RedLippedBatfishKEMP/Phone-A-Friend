@@ -1,3 +1,4 @@
+const { current } = require('@reduxjs/toolkit');
 const FriendInfo = require('../FriendModel');
 
 const FriendController = {
@@ -26,7 +27,6 @@ const FriendController = {
   },
 
   nextMonth(req, res, next) {
-
     const { newMonth } = req.body;
     FriendInfo.find({ nextContact: { $lte: newMonth + 1 } })
       .then((data) => {
@@ -56,7 +56,37 @@ const FriendController = {
       });
   },
 
-  reconnected(req, res, next) {},
+  reconnected(req, res, next) {
+    const { name, currentMonth } = req.body;
+    FriendInfo.find({ name: name })
+      .then(data => {
+        const entryFrequency = data.frequency;
+      }).catch((err) => {
+        return next({
+          log: `error in FriendController.reconnect ${err}`,
+          status: 400,
+          message: {
+            err: 'error occurred when attempting to find data',
+          },
+        })
+      })
+    .then(FriendInfo.findOneAndUpdate({ name: name }, { nextContact: currentMonth }, { new: true })
+      .then(data => {
+        console.log(data)
+        res.locals.document = data;
+        return next();
+      }) 
+      .catch((err) => {
+        return next({
+          log: `error in FriendController.reconnect ${err}`,
+          status: 400,
+          message: {
+            err: 'error occurred when attempting to update data',
+          },
+        });
+      }));
+      
+  },
 };
 
 // export the controller

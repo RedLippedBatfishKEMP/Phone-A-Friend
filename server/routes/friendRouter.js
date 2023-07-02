@@ -33,8 +33,8 @@ friendRouter.post('/nextMonth', FriendController.nextMonth, (req, res) => {
 
 // find friend in db by name
 // : means we are sending info along with the route
-friendRouter.patch('/reconnected', (req, res) => {
-  return res.status(200).json(res.locals.getFriendResponse);
+friendRouter.patch('/reconnected', FriendController.reconnected, (req, res) => {
+  return res.status(200).json(res.locals.document);
 });
 
 module.exports = friendRouter;

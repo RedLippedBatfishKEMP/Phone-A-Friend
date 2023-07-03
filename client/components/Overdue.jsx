@@ -2,6 +2,7 @@ import React from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { tryingToLogIn, loggingIn, setUser } from '../reducers/reducer';
 // import { useNavigate } from 'react-router-dom';
+import LabeledText from './LabeledText.jsx';
 
 export default function Overdue (props) {
   // const username = useSelector((state) => state.reducer.username);
@@ -14,9 +15,9 @@ export default function Overdue (props) {
   const newNextContact = currentMonth + overdueFriend.frequency;
 
   return (
-    <div className='upcomingFriend'>
+    <div className='overdueFriend'>
       <div>
-        <p>Friend: {overdueFriend.name}</p>
+      <LabeledText label="Friend" text={overdueFriend.name} />
       </div>
       <div>
         <button className='reconnectBtn' onClick={() => {handleClickReconnected(overdueFriend.name, newLastContacted, newNextContact, currentMonth)}}>Reconnected</button>

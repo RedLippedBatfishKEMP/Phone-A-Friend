@@ -29,7 +29,7 @@ export default function addFriend() {
 
  // fetch request to backend with params listed and will not need a response body
  const handleClickAdd = (name, lastContact, frequency, nextContact) => {
-  fetch('server/addfriend', {
+  fetch('friend/addfriend', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

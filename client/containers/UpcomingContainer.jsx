@@ -16,7 +16,7 @@ export default function UpcomingFriendList() {
   // res will be in form of obj { upcoming: [list], overdue: [list]}  
   const handleClickReconnected = (name, currentMonth) => {
     // console.log('apt', appointment);
-    fetch('/server/reconnected', {
+    fetch('/friend/reconnected', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -28,20 +28,25 @@ export default function UpcomingFriendList() {
     .then((res) => {
       // dispatch actions with res.upcoming and res.overdue as payload to update state 
       // so it will re-render all the components contains those states
-      dispatch(setUpComing(res.upcoming));
+      console.log('type',res)
+      dispatch(setUpComing(res.due));
       })
     .catch(err => console.log(err));
+    
   }
 
   const friendList = [];
 
   // create individule friend component from upcomingFriendList array in state and push into friendList
   upcomingFriendList.forEach(friend => {
+    // console.log('line 40', friend);
+    // console.log('type', upcomingFriendList)
+    // console.log('Array.isArray(upcomingFriendList): ', Array.isArray(upcomingFriendList))
     friendList.push(< Upcoming upcommingFriend={friend} currentMonth={currentMonth} handleClickReconnected={handleClickReconnected} />)
   })
 
   return (
-    <div className='upcomingFriends'>
+    <div className='upcomingFriendsList'>
       <h4>This Month's Phone A Friend List</h4>
       <div className='upcomingFriendList'>
         {friendList}

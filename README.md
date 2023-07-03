@@ -33,7 +33,6 @@ OverdueContainer.jsx:
     - Since we need to add a third container for entries on screen (Overdue, Due, and Upcoming)
         - We should import a new 'SetupDue' action creator from Reducer.js
         - Naming is a little bit confusing with SetUpComing and SetUpOverdue. Should it maybe be SetupUpcoming and SetupOverdue?
-    - Current path in PATCH request (on line 20) should be switched to /friend/reconnected
     - On lines 40/41, there are two very similar variables, overdueFriendlist and pastdueFriendlist. Can we semanticize?
     - handleClickReconnected parameter inconsistency:
         - The handleClickReconnected() method is currently declared (line 17) to accept two parameters

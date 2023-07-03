@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  currentMonth: 1,
+  currentMonth: 3,
   upcomingFriendList: [],
   overdueFriendList: [],
 }
@@ -18,8 +18,11 @@ export const reducer = createSlice({
     setUpComing: (state, action) => {
       state.upcomingFriendList = action.payload;
     },
-    setUpOverdue: (state, action) => {
+    setOverdue: (state, action) => {
       state.overdueFriendList = action.payload;
+    },
+    setMonth: (state, action) => {
+      state.currentMonth = action.payload;
     },
     
   }
@@ -27,7 +30,8 @@ export const reducer = createSlice({
 
 export const {
   setUpComing,
-  setUpOverdue
+  setOverdue,
+  setMonth
 } = reducer.actions;
 
 export default reducer.reducer;

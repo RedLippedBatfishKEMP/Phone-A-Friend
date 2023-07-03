@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUpComing, setUpOverdue } from '../reducers/reducer';
+import { setUpComing, setOverdue } from '../reducers/reducer';
 import Overdue from '../components/Overdue';
 // import { useNavigate } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ export default function OverdueFriendList() {
   // res will be in form of obj { upcoming: [list], overdue: [list]}
   const handleClickReconnected = (name, lastContacted, nextContact, currentMonth) => {
     // console.log('apt', appointment);
-    fetch('/server/reconnected', {
+    fetch('/friend/reconnected', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -28,8 +28,8 @@ export default function OverdueFriendList() {
     .then((res) => {
       // dispatch actions with res.upcoming and res.overdue as payload to update state 
       // so it will re-render all the components contains those states 
-      dispatch(setUpComing(res.upcoming));
-      dispatch(setUpOverdue(res.overdue));
+      // dispatch(setUpComing(res.due));
+      dispatch(setOverdue(res.overdue));
       })
     .catch(err => console.log(err));
   }
@@ -42,7 +42,7 @@ export default function OverdueFriendList() {
   })
 
   return (
-    <div className='overdueFriends'>
+    <div className='overdueFriendsList'>
       <h4>Phone A Friend ASAP List</h4>
       <div className='overdueFriendList'>
         {pastdueFriendList}

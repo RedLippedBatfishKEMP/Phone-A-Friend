@@ -60,7 +60,8 @@ const FriendController = {
     const { name, currentMonth } = req.body;
     FriendInfo.find({ name: name })
       .then(data => {
-        const entryFrequency = data.frequency;
+        const newNextContact = currentMonth + data[0].frequency;
+        return newNextContact;
       }).catch((err) => {
         return next({
           log: `error in FriendController.reconnect ${err}`,
@@ -70,7 +71,7 @@ const FriendController = {
           },
         })
       })
-    .then(FriendInfo.findOneAndUpdate({ name: name }, { nextContact: currentMonth }, { new: true })
+      .then((data) => FriendInfo.findOneAndUpdate({ name: name }, { lastContact: currentMonth, nextContact: data }, { new: true })
       .then(data => {
         console.log(data)
         res.locals.document = data;

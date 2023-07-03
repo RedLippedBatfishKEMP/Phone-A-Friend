@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 // const { number } = require('prop-types');
 // const Schema = mongoose.Schema;
-const uri =
-  'mongodb+srv://paulkim0209:batfish@cluster0.xxfz2d0.mongodb.net/Phone-A-Friend?retryWrites=true&w=majority';
+const uri = process.env.MONGO_URI;
 // make sure to make MongoDB in the cloud and not local
 // need to create MongoDB and add URI here and password
+console.log(process.env.MONGO_URI);
 
 mongoose.connect(
   // interact in terminal, mongosh = Mongo Shell, terminal mongosh to start

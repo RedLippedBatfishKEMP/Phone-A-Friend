@@ -27,14 +27,14 @@ friendRouter.post('/addFriend', FriendController.addFriend, (req, res) => {
   return res.status(200).json(res.locals.addFriendResponse);
 });
 
-friendRouter.post('/nextMonth', FriendController.nextMonth, (req, res) => {
+friendRouter.post('/timeTravel', FriendController.nextMonth, (req, res) => {
   return res.status(200).json(res.locals.friendData);
 });
 
 // find friend in db by name
 // : means we are sending info along with the route
-friendRouter.patch('/reconnected', (req, res) => {
-  return res.status(200).json(res.locals.getFriendResponse);
+friendRouter.patch('/reconnected', FriendController.reconnected, FriendController.getList, (req, res) => {
+  return res.status(200).json(res.locals.document);
 });
 
 module.exports = friendRouter;
